@@ -311,46 +311,55 @@
         
     </div>
     
-    <div id="secretPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 1000; overflow-y: auto;">
+    <div id="secretPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%); z-index: 1000; overflow-y: auto;">
         <div style="max-width: 800px; margin: 0 auto; padding: 20px; color: #fff;">
-            <button onclick="closeSecret()" style="position: absolute; top: 20px; right: 20px; background: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px;">✕ Fermer</button>
+            <button onclick="closeSecret()" style="position: absolute; top: 20px; right: 20px; background: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;">✕ Fermer</button>
             
-            <h1 style="color: #ffd700; text-align: center; margin-top: 60px; font-size: 32px;">🏆 Le Secret de la Roue Éternelle 🏆</h1>
+            <h1 style="color: #ffd700; text-align: center; margin-top: 60px; font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">🎉 Félicitations ! 🎉</h1>
             
             <div style="text-align: center; margin: 30px 0;">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3CradialGradient id='gold' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffd700'/%3E%3Cstop offset='100%25' style='stop-color:%23b8860b'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='150' cy='150' r='140' fill='url(%23gold)' stroke='%23ffd700' stroke-width='4'/%3E%3Ccircle cx='150' cy='150' r='120' fill='none' stroke='%23000' stroke-width='2'/%3E%3Ccircle cx='150' cy='150' r='25' fill='%23000'/%3E%3Cg stroke='%23000' stroke-width='3'%3E%3Cline x1='150' y1='30' x2='150' y2='270'/%3E%3Cline x1='30' y1='150' x2='270' y2='150'/%3E%3Cline x1='56' y1='56' x2='244' y2='244'/%3E%3Cline x1='244' y1='56' x2='56' y2='244'/%3E%3Cline x1='88' y1='34' x2='212' y2='266'/%3E%3Cline x1='266' y1='88' x2='34' y2='212'/%3E%3Cline x1='266' y1='212' x2='34' y2='88'/%3E%3Cline x1='212' y1='34' x2='88' y2='266'/%3E%3C/g%3E%3Ctext x='150' y='160' text-anchor='middle' font-size='40' fill='%23ffd700' font-weight='bold'%3E∞%3C/text%3E%3C/svg%3E" alt="Roue Éternelle" style="max-width: 300px; width: 100%; height: auto;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3CradialGradient id='gold' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffd700'/%3E%3Cstop offset='100%25' style='stop-color:%23b8860b'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='150' cy='150' r='140' fill='url(%23gold)' stroke='%23ffd700' stroke-width='4'/%3E%3Ccircle cx='150' cy='150' r='120' fill='none' stroke='%23000' stroke-width='2'/%3E%3Ccircle cx='150' cy='150' r='25' fill='%23000'/%3E%3Cg stroke='%23000' stroke-width='3'%3E%3Cline x1='150' y1='30' x2='150' y2='270'/%3E%3Cline x1='30' y1='150' x2='270' y2='150'/%3E%3Cline x1='56' y1='56' x2='244' y2='244'/%3E%3Cline x1='244' y1='56' x2='56' y2='244'/%3E%3Cline x1='88' y1='34' x2='212' y2='266'/%3E%3Cline x1='266' y1='88' x2='34' y2='212'/%3E%3Cline x1='266' y1='212' x2='34' y2='88'/%3E%3Cline x1='212' y1='34' x2='88' y2='266'/%3E%3C/g%3E%3Ctext x='150' y='160' text-anchor='middle' font-size='40' fill='%23ffd700' font-weight='bold'%3E%3C/text%3E%3C/svg%3E" alt="La Roue du Destin" style="max-width: 300px; width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));">
             </div>
             
-            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; margin: 20px 0; line-height: 1.8;">
-                <h2 style="color: #ffd700; margin-bottom: 16px;">Félicitations, Chercheur !</h2>
-                <p>Vous avez percé le mystère de la Roue Éternelle, un secret transmis à travers les millénaires par les premiers inventeurs de la roue.</p>
+            <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; margin: 20px 0; line-height: 1.8; backdrop-filter: blur(10px); border: 2px solid rgba(255,215,0,0.3);">
+                <h2 style="color: #ffd700; margin-bottom: 16px; font-size: 28px; text-align: center;">Tu as déchiffré l'énigme ! 🎊</h2>
                 
-                <p style="margin-top: 16px;">Selon une légende mésopotamienne oubliée, la première roue ne fut pas simplement taillée dans le bois, mais <b style="color: #ffd700;">révélée en rêve</b> à un artisan nommé Ur-Nammu. Dans ce rêve, les dieux lui montrèrent que la roue représentait le <b style="color: #ffd700;">cycle éternel de la vie</b> : naissance, mort et renaissance.</p>
+                <p style="font-size: 18px; text-align: center; margin-top: 20px;">Tu as trouvé les lettres cachées et reconstitué "V-Y-F-B- -G-S-C-D-O"...</p>
                 
-                <p style="margin-top: 16px;">Les huit rayons que vous avez dû compter symbolisent les huit phases de ce cycle cosmique. La roue ne tourne jamais vraiment - c'est le monde qui tourne autour d'elle, et nous avec lui.</p>
                 
-                <p style="margin-top: 16px; font-style: italic; color: #ffd700;">"Celui qui comprend la roue comprend l'univers. Celui qui compte ses rayons compte les secrets du temps."</p>
+                <p style="font-size: 18px; text-align: center; margin-top: 16px;">Mais ce n'est que le <b style="color: #ffd700;">début de l'aventure</b> !</p>
                 
-                <p style="margin-top: 20px; text-align: center; font-size: 18px; color: #ffd700;">⚙️ Vous faites maintenant partie des Gardiens de la Roue ⚙️</p>
+                <div style="margin: 30px 0; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #ffd700;">
+                    <p style="font-size: 20px; color: #ffd700; font-weight: bold; margin-bottom: 12px;">📅 Rendez-vous le 7 avril</p>
+                    <p style="font-size: 16px;">Ce jour-là, la prochaine étape de ton cadeau d'anniversaire te sera révélée...</p>
+
+                </div>
+                
+
+                
+                <div style="text-align: center; margin-top: 30px; font-size: 48px;">
+                    🎂
+                </div>
             </div>
             
             <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,215,0,0.1); border: 1px solid #ffd700; border-radius: 8px;">
-                <p style="font-size: 14px; color: #ccc;">Partagez ce secret avec sagesse. Tous ne sont pas prêts à voir ce qui se cache sous la surface...</p>
+
+                <p style="font-size: 14px; color: #ffd700; margin-top: 8px; font-weight: bold;">La suite de l'aventure approche !</p>
             </div>
         </div>
     </div>
     
     <script>
         function checkCode() {
-            const input = document.getElementById('secretCode').value.toUpperCase().trim();
+            const input = document.getElementById('secretCode').value.toLowerCase().trim();
             const message = document.getElementById('message');
             
-            // Le code secret est "sept avril" (10 lettres marquées dans le texte)
-            if (input === 'sept avril') {
+            // Le code secret est "sept avril" (sans espace aussi accepté)
+            if (input === 'septavril' || input === 'sept avril') {
                 document.getElementById('secretPage').style.display = 'block';
                 document.body.style.overflow = 'hidden';
             } else {
-                message.textContent = '❌ Code incorrect. Essaie encore...';
+                message.textContent = '❌ Code incorrect. Cherche bien les lettres surlignées...';
                 message.style.color = '#d33';
             }
         }
