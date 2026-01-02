@@ -152,6 +152,13 @@
             color: #54595d;
         }
         
+        .secret-letter {
+            background: linear-gradient(120deg, #ffd700 0%, #ffed4e 100%);
+            padding: 0 1px;
+            font-weight: bold;
+            color: #000;
+        }
+        
         @media (min-width: 768px) {
             .content {
                 max-width: 720px;
@@ -264,10 +271,12 @@
         <p>La roue trouve des applications dans de nombreux domaines :</p>
         
         <ul>
-            <li><b>Transport</b> : véhicules, chariots, trains</li>
-            <li><b>Industrie</b> : engrenages, poulies, turbines</li>
-            <li><b>Vie quotidienne</b> : portes coulissantes, valises à roulettes</li>
-            <li><b>Loisirs</b> : vélos, patins à roulettes, skateboards</li>
+            <li><b>Transport</b> : vé<span class="secret-letter">H</span>icules, chariots, trains</li>
+            <li><b>Ind<span class="secret-letter">U</span>strie</b> : engrenages, poul<span class="secret-letter">I</span>es, turbines</li>
+            <li><b>Vie quotidienne</b> : por<span class="secret-letter">T</span>es coulissantes, valises à <span class="secret-letter">R</span>oulettes</li>
+            <li><b>Loisirs</b> : vélos, p<span class="secret-letter">A</span>tins à roulettes, ska<span class="secret-letter">Y</span>boards</li>
+            <li><b>Énergétique</b> : turbines hydr<span class="secret-letter">O</span>-électriques, éolie<span class="secret-letter">N</span>nes</li>
+            <li><b>Horlogerie</b> : rouage<span class="secret-letter">S</span>, mécanismes de précision</li>
         </ul>
         
         <h2>Impact culturel et symbolique</h2>
@@ -292,6 +301,71 @@
             <li>Invention</li>
         </ul>
         
+        <div style="margin-top: 40px; padding: 20px; background: #f0f0f0; border: 2px dashed #999; border-radius: 8px;">
+            <h3 style="margin-top: 0;">Accès Zone Secrète</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 12px;">Vous avez découvert quelque chose d'inhabituel dans cet article ? Entrez le code secret...</p>
+            <input type="text" id="secretCode" placeholder="Code secret" style="width: 100%; padding: 12px; font-size: 16px; border: 1px solid #a2a9b1; border-radius: 4px; margin-bottom: 8px;">
+            <button onclick="checkCode()" style="width: 100%; padding: 12px; background: #0645ad; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Vérifier</button>
+            <div id="message" style="margin-top: 8px; font-size: 14px; color: #d33;"></div>
+        </div>
+        
     </div>
+    
+    <div id="secretPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 1000; overflow-y: auto;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 20px; color: #fff;">
+            <button onclick="closeSecret()" style="position: absolute; top: 20px; right: 20px; background: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px;">✕ Fermer</button>
+            
+            <h1 style="color: #ffd700; text-align: center; margin-top: 60px; font-size: 32px;">🏆 Le Secret de la Roue Éternelle 🏆</h1>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3CradialGradient id='gold' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffd700'/%3E%3Cstop offset='100%25' style='stop-color:%23b8860b'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='150' cy='150' r='140' fill='url(%23gold)' stroke='%23ffd700' stroke-width='4'/%3E%3Ccircle cx='150' cy='150' r='120' fill='none' stroke='%23000' stroke-width='2'/%3E%3Ccircle cx='150' cy='150' r='25' fill='%23000'/%3E%3Cg stroke='%23000' stroke-width='3'%3E%3Cline x1='150' y1='30' x2='150' y2='270'/%3E%3Cline x1='30' y1='150' x2='270' y2='150'/%3E%3Cline x1='56' y1='56' x2='244' y2='244'/%3E%3Cline x1='244' y1='56' x2='56' y2='244'/%3E%3Cline x1='88' y1='34' x2='212' y2='266'/%3E%3Cline x1='266' y1='88' x2='34' y2='212'/%3E%3Cline x1='266' y1='212' x2='34' y2='88'/%3E%3Cline x1='212' y1='34' x2='88' y2='266'/%3E%3C/g%3E%3Ctext x='150' y='160' text-anchor='middle' font-size='40' fill='%23ffd700' font-weight='bold'%3E∞%3C/text%3E%3C/svg%3E" alt="Roue Éternelle" style="max-width: 300px; width: 100%; height: auto;">
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; margin: 20px 0; line-height: 1.8;">
+                <h2 style="color: #ffd700; margin-bottom: 16px;">Félicitations, Chercheur !</h2>
+                <p>Vous avez percé le mystère de la Roue Éternelle, un secret transmis à travers les millénaires par les premiers inventeurs de la roue.</p>
+                
+                <p style="margin-top: 16px;">Selon une légende mésopotamienne oubliée, la première roue ne fut pas simplement taillée dans le bois, mais <b style="color: #ffd700;">révélée en rêve</b> à un artisan nommé Ur-Nammu. Dans ce rêve, les dieux lui montrèrent que la roue représentait le <b style="color: #ffd700;">cycle éternel de la vie</b> : naissance, mort et renaissance.</p>
+                
+                <p style="margin-top: 16px;">Les huit rayons que vous avez dû compter symbolisent les huit phases de ce cycle cosmique. La roue ne tourne jamais vraiment - c'est le monde qui tourne autour d'elle, et nous avec lui.</p>
+                
+                <p style="margin-top: 16px; font-style: italic; color: #ffd700;">"Celui qui comprend la roue comprend l'univers. Celui qui compte ses rayons compte les secrets du temps."</p>
+                
+                <p style="margin-top: 20px; text-align: center; font-size: 18px; color: #ffd700;">⚙️ Vous faites maintenant partie des Gardiens de la Roue ⚙️</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,215,0,0.1); border: 1px solid #ffd700; border-radius: 8px;">
+                <p style="font-size: 14px; color: #ccc;">Partagez ce secret avec sagesse. Tous ne sont pas prêts à voir ce qui se cache sous la surface...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function checkCode() {
+            const input = document.getElementById('secretCode').value.toUpperCase().trim();
+            const message = document.getElementById('message');
+            
+            // Le code secret est "HUITRAYONS" (8 lettres marquées dans le texte)
+            if (input === 'HUITRAYONS') {
+                document.getElementById('secretPage').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            } else {
+                message.textContent = '❌ Code incorrect. Observez attentivement l\'article...';
+                message.style.color = '#d33';
+            }
+        }
+        
+        function closeSecret() {
+            document.getElementById('secretPage').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Permettre la validation avec la touche Entrée
+        document.getElementById('secretCode').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkCode();
+            }
+        });
+    </script>
 </body>
 </html>
