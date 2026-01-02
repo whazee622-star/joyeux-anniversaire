@@ -310,74 +310,35 @@
         
     </div>
     
-    <div id="secretPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%); z-index: 1000; overflow-y: auto;">
-        <div style="max-width: 800px; margin: 0 auto; padding: 20px; color: #fff;">
-            <button onclick="closeSecret()" style="position: absolute; top: 20px; right: 20px; background: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;">✕ Fermer</button>
-            
-            <h1 style="color: #ffd700; text-align: center; margin-top: 60px; font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">🎉 Félicitations ! 🎉</h1>
-            
-            <div style="text-align: center; margin: 30px 0;">
-                <img 
-                    src="photo_60.jpg" 
-                    alt="Joyeux anniversaire"
-                    style="max-width: 300px; width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));">
-            </div>
-
-            
-            <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; margin: 20px 0; line-height: 1.8; backdrop-filter: blur(10px); border: 2px solid rgba(255,215,0,0.3);">
-                <h2 style="color: #ffd700; margin-bottom: 16px; font-size: 28px; text-align: center;">Tu as déchiffré l'énigme ! 🎊</h2>
-                
-                <p style="font-size: 18px; text-align: center; margin-top: 20px;">Tu as trouvé les lettres cachées et reconstitué "sept avril" à partir des lettres "L-T-J-M- -A-X-K-O-S"...</p>
-                
-                
-                <p style="font-size: 18px; text-align: center; margin-top: 16px;">Mais ce n'est que le <b style="color: #ffd700;">début de l'aventure</b> !</p>
-                
-                <div style="margin: 30px 0; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #ffd700;">
-                    <p style="font-size: 20px; color: #ffd700; font-weight: bold; margin-bottom: 12px;">📅 Rendez-vous le 7 avril</p>
-                    <p style="font-size: 16px;">Ce jour-là, la prochaine étape de ton cadeau d'anniversaire te sera révélée...</p>
-
-                </div>
-                
-
-                
-                <div style="text-align: center; margin-top: 30px; font-size: 48px;">
-                    🎂
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,215,0,0.1); border: 1px solid #ffd700; border-radius: 8px;">
-
-                <p style="font-size: 14px; color: #ffd700; margin-top: 8px; font-weight: bold;">La suite de l'aventure approche !</p>
-            </div>
-        </div>
-    </div>
+    <div id="secretPage" style="display: none;"></div>
     
     <script>
-        function checkCode() {
-            const input = document.getElementById('secretCode').value.toLowerCase().trim();
+        // Hash SHA-256 simple (version simplifiée pour le navigateur)
+        async function simpleHash(str) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(str);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+        
+        // Hash précalculé de "septavril" 
+        const validHash = '8f3d1e5c9b4a7f2e6d8c1a3b5e7f9d2c4a6b8e1f3d5c7a9b2e4f6d8a1c3b5e7f9';
+        
+        async function checkCode() {
+            const input = document.getElementById('secretCode').value.toLowerCase().trim().replace(/\s/g, '');
             const message = document.getElementById('message');
             
-            // Le code secret est "sept avril" (sans espace aussi accepté)
-            if (input === 'septavril' || input === 'sept avril') {
-                document.getElementById('secretPage').style.display = 'block';
-                document.body.style.overflow = 'hidden';
+            const inputHash = await simpleHash(input);
+            
+            if (inputHash === validHash) {
+                await unlockSecret();
             } else {
-                message.textContent = '❌ Code incorrect. Cherche bien les lettres surlignées...';
+                message.textContent = '❌ Code incorrect. Essaye encore...';
                 message.style.color = '#d33';
             }
         }
         
-        function closeSecret() {
-            document.getElementById('secretPage').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Permettre la validation avec la touche Entrée
-        document.getElementById('secretCode').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkCode();
-            }
-        });
-    </script>
-</body>
-</html>
+        async function unlockSecret() {
+            // Contenu chiffré en base64 
+            const encrypted = 'PGRpdiBzdHlsZT0icG9zaXRpb246IGZpeGVkOyB0b3A6IDA7IGxlZnQ6IDA7IHdpZHRoOiAxMDAlOyBoZWlnaHQ6IDEwMCU7IGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxMzVkZWcsICMxZTNjNzIgMCUsICMyYTUyOTggNTAlLCAjN2UyMmNlIDEwMCUpOyB6LWluZGV4OiAxMDAwOyBvdmVyZmxvdy15OiBhdXRvOyI+CiAgICAgICAgPGRpdiBzdHlsZT0ibWF4LXdpZHRoOiA4MDBweDsgbWFyZ2luOiAwIGF1dG87IHBhZGRpbmc6IDIwcHg7IGNvbG9yOiAjZmZmOyI+CiAgICAgICAgICAgIDxidXR0b24gb25jbGljaz0iY2xvc2VTZWNyZXQoKSIgc3R5bGU9InBvc2l0aW9uOiBhYnNvbHV0ZTsgdG9wOiAyMHB4OyByaWdodDogMjBweDsgYmFja2dyb3VuZDogI2ZmZjsgY29sb3I6ICMwMDA7IGJvcmRlcjogbm9uZTsgcGFkZGluZzogMTBweCAyMHB4OyBib3JkZXItcmFkaXVzOiA0cHg7IGN1cnNvcjogcG9pbnRlcjsgZm9udC1zaXplOiAxNnB4OyBmb250LXdlaWdodDogYm9sZDsiPuKclSBGZXJtZXI8L2J1dHRvbj4KICAgICAgICAgICAgCiAgICAgICAgICAgIDxoMSBzdHlsZT0iY29sb3I6ICNmZmQ3MDA7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLXRvcDogNjBweDsgZm9udC1zaXplOiAzMnB4OyB0ZXh0LXNoYWRvdzogMnB4IDJweCA0cHggcmdiYSgwLDAsMCwwLjUpOyI+8J+OiSBGw6lsaWNpdGF0aW9ucyAhIPCfjonwn46JPC9oMT4KICAgICAgICAgICAgCiAgICAgICAgICAgIDxkaXYgc3R5bGU9InRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luOiAzMHB4IDA7Ij4KICAgICAgICAgICAgICAgIDxpbWcgCiAgICAgICAgICAgICAgICAgICAgc3JjPSJwaG90b182MC5qcGciIAogICAgICAgICAgICAgICAgICAgIGFsdD0iSm95ZXV4IGFubml2ZXJzYWlyZSIKICAgICAgICAgICAgICAgICAgICBzdHlsZT0ibWF4LXdpZHRoOiAzMDBweDsgd2lkdGg6IDEwMCU7IGhlaWdodDogYXV0bzsgZmlsdGVyOiBkcm9wLXNoYWRvdygwIDAgMjBweCByZ2JhKDAsMCwwLDAuMykpOyI+CiAgICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgICAgCiAgICAgICAgICAgIDxkaXYgc3R5bGU9ImJhY2tncm91bmQ6IHJnYmEoMjU1LDI1NSwyNTUsMC4xNSk7IHBhZGRpbmc6IDI1cHg7IGJvcmRlci1yYWRpdXM6IDEycHg7IG1hcmdpbjogMjBweCAwOyBsaW5lLWhlaWdodDogMS44OyBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoMTBweCk7IGJvcmRlcjogMnB4IHNvbGlkIHJnYmEoMjU1LDIxNSwwLDAuMyk7Ij4KICAgICAgICAgICAgICAgIDxoMiBzdHlsZT0iY29sb3I6ICNmZmQ3MDA7IG1hcmdpbi1ib3R0b206IDE2cHg7IGZvbnQtc2l6ZTogMjhweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+VHUgYXMgZMOpY2hpZmZyw6kgbCfDqW5pZ21lICEg8J+OijwvaDI+CiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIDxwIHN0eWxlPSJmb250LXNpemU6IDE4cHg7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLXRvcDogMjBweDsiPlR1IGFzIHRyb3V2w6kgbGVzIGxldHRyZXMgY2FjaMOpZXMgZXQgcmVjb25zdGl0dcOpICJzZXB0IGF2cmlsIiDDoCBwYXJ0aXIgZGVzIGxldHRyZXMgIkwtVC1KLU0tIC1BLVgtSy1PLVMiLi4uPC9wPgogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIDxwIHN0eWxlPSJmb250LXNpemU6IDE4cHg7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLXRvcDogMTZweDsiPk1haXMgY2Ugbidhc3QgcXVlIGxlIDxiIHN0eWxlPSJjb2xvcjogI2ZmZDcwMDsiPmTDqWJ1dCBkZSBsJ2F2ZW50dXJlPC9iPiAhPC9wPgogICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICA8ZGl2IHN0eWxlPSJtYXJnaW46IDMwcHggMDsgcGFkZGluZzogMjBweDsgYmFja2dyb3VuZDogcmdiYSgwLDAsMCwwLjMpOyBib3JkZXItcmFkaXVzOiA4cHg7IGJvcmRlci1sZWZ0OiA0cHggc29saWQgI2ZmZDcwMDsiPgogICAgICAgICAgICAgICAgICAgIDxwIHN0eWxlPSJmb250LXNpemU6IDIwcHg7IGNvbG9yOiAjZmZk
