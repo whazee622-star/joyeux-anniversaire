@@ -201,7 +201,7 @@
             </div>
             <div class="infobox-row">
                 <div class="infobox-label">Période</div>
-                <div>≈ 3500 a<span class="secret-letter">v</span>. J.-C.</div>
+                <div>≈ 3500 av. J.-C.</div>
             </div>
             <div class="infobox-row">
                 <div class="infobox-label">Lieu d'origine</div>
@@ -209,7 +209,7 @@
             </div>
         </div>
         
-        <p>La <b>roue</b> est un organe ou pièce mécanique de forme circulaire tournant autour d'un axe passant par son centre. Elle fait partie des plus anciennes inventions humaines et a joué un rôle majeur dans le développement technologique de l'humanité.</p>
+        <p>La <b>roue</b> est un organe ou pièce mécanique de forme circulaire tournant autour d'un axe passant par son centre. Elle fait partie des plus anciennes inventions humaines et a joué un rôle majeur dans le dé<span class="secret-letter">v</span>eloppement technologique de l'humanité.</p>
         
         <p>La roue peut être pleine, composée d'un disque unique, ou à ra<span class="secret-letter">y</span>ons. Elle permet de réduire les <span class="secret-letter">f</span>orces de frottement et facilite le déplacement de charges lourdes. Bien qu'elle soit aujourd'hui omniprésente dans notre quotidien, la roue ne s'est développée que relativement tard dans l'histoire de l'humanité, vers le IVe millénaire avant notre ère.</p>
         
@@ -302,8 +302,8 @@
         </ul>
         
         <div style="margin-top: 40px; padding: 20px; background: #f0f0f0; border: 2px dashed #999; border-radius: 8px;">
-            <h3 style="margin-top: 0;">Accès Zone Secrète</h3>
-            <p style="font-size: 14px; color: #666; margin-bottom: 12px;">Vous avez découvert quelque chose d'inhabituel dans cet article ? Entrez le code secret...</p>
+            <h3 style="margin-top: 0;">Tu as résolu l'énigme ?</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 12px;">Il ne te reste qu'à déchiffrer cette énigme... Entre le code secret :</p>
             <input type="text" id="secretCode" placeholder="Code secret" style="width: 100%; padding: 12px; font-size: 16px; border: 1px solid #a2a9b1; border-radius: 4px; margin-bottom: 8px;">
             <button onclick="checkCode()" style="width: 100%; padding: 12px; background: #0645ad; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Vérifier</button>
             <div id="message" style="margin-top: 8px; font-size: 14px; color: #d33;"></div>
@@ -345,12 +345,12 @@
             const input = document.getElementById('secretCode').value.toUpperCase().trim();
             const message = document.getElementById('message');
             
-            // Le code secret est "HUITRAYONS" (8 lettres marquées dans le texte)
-            if (input === 'HUITRAYONS') {
+            // Le code secret est "sept avril" (10 lettres marquées dans le texte)
+            if (input === 'sept avril') {
                 document.getElementById('secretPage').style.display = 'block';
                 document.body.style.overflow = 'hidden';
             } else {
-                message.textContent = '❌ Code incorrect. Observez attentivement l\'article...';
+                message.textContent = '❌ Code incorrect. Essaie encore...';
                 message.style.color = '#d33';
             }
         }
